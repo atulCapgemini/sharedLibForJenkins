@@ -7,7 +7,7 @@ def call(String mvnaction){
   }
   
   else if(mvnaction == "clean"){
-    sh "mvn clean test
+    sh "mvn clean test"
   }
   
   else if(mvnaction == "install"){
