@@ -1,7 +1,8 @@
-def call(String filter_string,int occurence){
-  def logs = currentBuild.rawBuild.getLog(10000).join('\n')
-  int count = StringUtils.countMatches(logs,filter_string); 
-  if(count>occurence-1){
-    currentBuild.result = "UNSTABLE"
-  }
+
+def call(String filter_string, int occurrence) {
+    def logs = currentBuild.rawBuild.getLog(10000).join('\n')
+    int count = logs.count(filter_string)
+    if (count > occurrence - 1) {
+        currentBuild.result = "UNSTABLE"
+    }
 }
